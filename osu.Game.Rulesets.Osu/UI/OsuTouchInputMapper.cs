@@ -97,20 +97,13 @@ namespace osu.Game.Rulesets.Osu.UI
                 return;
             }
 
-            // ..or if the current position tracking touch was not a direct touch (this one is debatable and may be change in the future, but it's the simplest way to handle)
-            if (!positionTrackingTouch.DirectTouch)
-            {
-                positionTrackingTouch = newTouch;
-                return;
-            }
-
             // In the case the new touch was not used for position tracking, we should also check the previous position tracking touch.
             // If it was a direct touch and still has its action pressed, that action should be released.
             //
             // This is done to allow tracking with the initial touch while still having both Left/Right actions available for alternating with two more touches.
-            if (positionTrackingTouch.DirectTouch && positionTrackingTouch.Action is OsuAction directTouchAction)
+            if (positionTrackingTouch.Action is OsuAction touchAction)
             {
-                osuInputManager.KeyBindingContainer.TriggerReleased(directTouchAction);
+                osuInputManager.KeyBindingContainer.TriggerReleased(touchAction);
                 positionTrackingTouch.Action = null;
             }
         }
