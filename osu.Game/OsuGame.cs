@@ -215,7 +215,7 @@ namespace osu.Game
         private MainMenu menuScreen;
 
         [CanBeNull]
-        private DevBuildBanner devBuildBanner;
+        private DevBuildBanner devBuildBanner = null;
 
         [CanBeNull]
         private IntroScreen introScreen;
@@ -1161,8 +1161,13 @@ namespace osu.Game
                 Margin = new MarginPadding(5),
             }, topMostOverlayContent.Add);
 
+            /*
             if (!IsDeployedBuild)
-                loadComponentSingleFile(devBuildBanner = new DevBuildBanner(), ScreenContainer.Add);
+            {
+                dependencies.Cache(versionManager = new VersionManager());
+                loadComponentSingleFile(versionManager, ScreenContainer.Add);
+            }
+            */
 
             loadComponentSingleFile(osuLogo, _ =>
             {
