@@ -393,7 +393,7 @@ namespace osu.Game.Screens.Menu
 
         public override bool OnExiting(ScreenExitEvent e)
         {
-            bool requiresConfirmation =
+            bool requiresConfirmation = false &&
                 // we need to have a dialog overlay to confirm in the first place.
                 dialogOverlay != null
                 // if the dialog has already displayed and been accepted by the user, we are good.
