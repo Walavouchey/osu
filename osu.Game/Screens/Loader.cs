@@ -55,6 +55,9 @@ namespace osu.Game.Screens
                 case IntroSequence.Welcome:
                     return new IntroWelcome(createMainMenu);
 
+                case IntroSequence.Contest:
+                    return new IntroContest(createMainMenu);
+
                 default:
                     return new IntroTriangles(createMainMenu);
             }
