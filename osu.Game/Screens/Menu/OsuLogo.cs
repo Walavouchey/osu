@@ -168,10 +168,12 @@ namespace osu.Game.Screens.Menu
                                                 LogoElements = new Container
                                                 {
                                                     AutoSizeAxes = Axes.Both,
+
                                                     Children = new Drawable[]
                                                     {
                                                         logoContainer = new CircularContainer
                                                         {
+                                                            Alpha = 0.5f,
                                                             Anchor = Anchor.Centre,
                                                             Origin = Anchor.Centre,
                                                             RelativeSizeAxes = Axes.Both,
@@ -195,6 +197,7 @@ namespace osu.Game.Screens.Menu
                                                                         {
                                                                             Anchor = Anchor.Centre,
                                                                             Origin = Anchor.Centre,
+                                                                            Alpha = 0.25f,
                                                                             Thickness = 0.009f,
                                                                             ScaleAdjust = 3,
                                                                             SpawnRatio = 1.4f,
